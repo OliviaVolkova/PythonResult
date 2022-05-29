@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for url in urls %}
+
+        <hr>
+     <form action="" method="post">
+                <div>
+                    New url:
+                    <td><a href="../{{ url.new_url }}">{{ url.new_url }}</a></td>
+                </div>
+                <div>
+                    Url:
+                    <td><a href="{{ url.url }}">{{ url.url }}</a></td>
+                </div>
+                <div>
+                    Count: {{ url.count }}
+                </div>
+
+                <input type="hidden" name="url_id" value="{{ url.id }}">
+                {% csrf_token %}
+                <button type="submit">Remove</button>
+            </form>
+    {% endfor %}
+{% endblock %}

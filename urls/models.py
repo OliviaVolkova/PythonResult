@@ -5,7 +5,7 @@ from django.db import models
 from django.db.models import CASCADE
 
 
-class UserModel(AbstractUser):
+class User(AbstractUser):
     pass
 
 

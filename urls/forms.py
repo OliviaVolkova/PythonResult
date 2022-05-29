@@ -1,8 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-from django.forms import forms
+from django import forms
 
-from urls.models import UrlModel
+from urls.models import UrlModel, User
 
 
 class UserForm(UserCreationForm):
@@ -17,5 +16,5 @@ class UrlForm(forms.ModelForm):
 
     class Meta:
         model = UrlModel
-        fields = ('new_url',)
+        fields = ('url',)
         exclude = ['user',]

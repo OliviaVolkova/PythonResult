@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views
 
-from urls.views import SignUp, DefaultView
+from urls.views import SignUp, DefaultView, AddUrlView, AllUrlsView, Redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,5 +30,9 @@ urlpatterns = [
 
     path('', DefaultView.as_view(), name='default'),
 
-    path('add/'. AddUrlView.as_view(), name='add'),
+    path('add/', AddUrlView.as_view(), name='add_url'),
+
+    path('all_urls/', AllUrlsView.as_view(), name='all_urls'),
+
+    path('<str:new_url>', Redirect.as_view(), name='redirect')
 ]
