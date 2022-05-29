@@ -31,3 +31,10 @@ class SignUp(View):
         })
 
 
+class DefaultView(View):
+    template_name = 'base.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+

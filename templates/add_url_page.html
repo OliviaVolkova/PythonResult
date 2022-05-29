@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <form action="{% url 'add' %}" method="post">
+        <li class="list-group-item">
+            {{ form }}
+        </li>
+
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">Submit</button>
+
+        </form>
+    {% endif %}
+{% endblock %}
