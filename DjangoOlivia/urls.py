@@ -22,7 +22,7 @@ from urls.views import SignUp, DefaultView, AddUrlView, AllUrlsView, Redirect
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('sign_in/', views.LoginView.as_view(), name='login'),
+    path('sign_in/', views.LoginView.as_view(redirect_authenticated_user=True), name='login'),
 
     path('', include('django.contrib.auth.urls')),
 
