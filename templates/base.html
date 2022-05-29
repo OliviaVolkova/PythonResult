@@ -3,7 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
+<header class="my_header">
+    <ul class="list-group">
+        <li class="list-group-item">
+            Current user: {{ user }}
+        </li>
+
+        {% if user.is_authenticated %}
+            <li class="list-group-item">
+                <a href="{% url 'logout' %}"> Logout</a>
+            </li>
+        {% else %}
+            <li class="list-group-item">
+                <a href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'sign_up' %}">Sign up</a>
+            </li>
+        {% endif %}
+    </ul>
+</header>
 <body>
 {% block content %}
 {% endblock %}
